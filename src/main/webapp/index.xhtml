@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Usuario</title>
+    </h:head>
+
+    <h:body>
+        Usuarios
+        <h:form>
+            <p:dataTable value="#{frmUsuario.usuarios}" var="u">
+                <p:column headerText="id">
+                    <h:outputText value="#{u.idUsuario}"></h:outputText>
+                </p:column>
+                <p:column headerText="apellidos">
+                    <h:outputText value="#{u.apellidos}"></h:outputText>
+                </p:column >
+                <p:column headerText="nombre">
+                    <h:outputText value="#{u.nombres}"></h:outputText>
+                </p:column>
+                <p:column headerText="fecha de nacimiento">
+                    <h:outputText value="#{u.fechaNacimiento}"></h:outputText>
+                </p:column>
+                <p:column headerText="activo">
+                    <h:outputText value="#{u.activo}"></h:outputText>
+                </p:column>
+                <p:column headerText="comentarios">
+                    <h:outputText value="#{u.comentarios}"></h:outputText>
+                </p:column>
+                <p:column headerText="username">
+                    <h:outputText value="#{u.username}"></h:outputText>
+                </p:column>
+                <p:column headerText="password">
+                    <h:outputText value="#{u.password}"></h:outputText>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+        <f:view>
+            <h:form>
+                <h3><h:outputText value="Crear Nuevo Registro"/></h3>
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Apellidos:" for="apellidos" />
+                    <p:inputTextarea id="apellidos" value="#{frmUsuario.usuarios.apellidos}" title="Apellidos" required="true" requiredMessage="The Apellidos field is required."/>
+                    
+                    <p:outputLabel value="Nombres:" for="nombres" />
+                    <p:inputTextarea id="nombres" value="#{frmUsuario.usuarios.nombres}" title="Nombres" required="true" requiredMessage="The Nombres field is required."/>
+                    
+                    <p:outputLabel value="Fecha_Nacimiento:" for="fecha_nacimiento" />
+                    <p:inputTextarea id="fecha_nacimiento" value="#{frmUsuario.usuarios.fecha_nacimiento}" title="Fecha_Nacimiento" required="true" requiredMessage="The Fecha_Nacimiento field is required."/>
+                
+                    <p:outputLabel value="Activo:" for="activo" />
+                    <p:selectBooleanCheckbox id="activo" value="#{frmUsuario.usuarios.activo}"/>
+                
+                    <p:outputLabel value="Comentarios:" for="comentarios" />
+                    <p:inputTextarea id="comentarios" value="#{frmUsuario.usuarios.comentarios}" title="Activo" />
+                
+                    <p:outputLabel value="Username:" for="username" />
+                    <p:inputTextarea id="username" value="#{frmUsuario.usuarios.username}" title="Username" required="true" requiredMessage="The Username field is required."/>
+                    
+                    <p:outputLabel value="Password:" for="password" />
+                    <p:inputTextarea id="password" value="#{frmUsuario.usuarios.password}" title="Password" required="true" requiredMessage="The Password field is required."/>
+                    
+                </p:panelGrid>
+                <p:panelGrid id="c_guardar" columns="2">
+                   
+                    <p:commandButton value="Guardar" icon="ui-icon-disk" ajax="true" actionListener="#{frmUsiario.guardar()}" />
+                </p:panelGrid>
+            </h:form>
+        </f:view>
+
+    </h:body>
+
+</html>
+
